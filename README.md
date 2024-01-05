@@ -39,9 +39,18 @@ Trx2Xlsx Converter is a simple command-line utility that converts Test Results X
    dotnet run -- <inputFileName.trx> <outputFileName.xlsx>
 Replace <inputFileName.trx> with the path to your TRX file and <outputFileName.xlsx> with the desired name for the output Excel file.
 
-## Acknowledgments
-- This converter uses [EPPlus](https://github.com/JanKallman/EPPlus) for working with Excel files.
+## Dependencies
 
+This project relies on the [EPPlus](https://github.com/JanKallman/EPPlus) library for working with Excel files. Make sure to install it before building the project.
+
+### Installing EPPlus
+
+To install EPPlus, you can use the NuGet Package Manager Console or the .NET CLI. Run the following command in your project directory:
+
+      dotnet add package EPPlus
+
+This will install the latest version of EPPlus and add it to your project dependencies.
+                 
 ## Need some updates/improvements, want to use part of the code? Just fork it!
 
 #### Authored by Oleksandr Menzerov (olesme)
