@@ -1,4 +1,4 @@
-﻿using System.Xml;
+using System.Xml;
 using OfficeOpenXml;
 
 namespace Trx2Xlsx
@@ -48,9 +48,10 @@ namespace Trx2Xlsx
             xmlDocument.Load(inputFilePath);
 
             var nsmgr = new XmlNamespaceManager(xmlDocument.NameTable);
-            nsmgr.AddNamespace("ns", "http://microsoft.com/schemas/VisualStudio/TeamTest/2010");
+            var xmlNameSpaceString = "http://microsoft.com/schemas/VisualStudio/TeamTest/2010";
+            nsmgr.AddNamespace("ns", xmlNameSpaceString);
 
-            XmlNodeList testResults = xmlDocument.SelectNodes("/ns:TestRun/ns:Results/ns:UnitTestResult", nsmgr);
+            XmlNodeList? testResults = xmlDocument.SelectNodes("/ns:TestRun/ns:Results/ns:UnitTestResult", nsmgr);
 
             if (testResults == null || testResults.Count == 0)
             {
@@ -72,29 +73,29 @@ namespace Trx2Xlsx
 
             foreach (XmlNode test in testResults)
             {
-                worksheet.Cells[rowIndex, 1].Value = test.Attributes["testName"].Value;
+                worksheet.Cells[rowIndex, 1].Value = test.Attributes?["testName"]?.Value;
                 worksheet.Cells[rowIndex, 2].Value = test.SelectSingleNode("ns:Output/ns:StdOut", nsmgr)?.InnerText;
 
                 var outcomeCell = worksheet.Cells[rowIndex, 3];
-                outcomeCell.Value = test.Attributes["outcome"].Value;
-                if (test.Attributes["outcome"].Value == "Passed")
+                outcomeCell.Value = test.Attributes?["outcome"]?.Value;
+                if (test.Attributes?["outcome"]?.Value == "Passed")
                 {
                     outcomeCell.Style.Font.Color.SetColor(System.Drawing.Color.Green);
                 }
-                else if (test.Attributes["outcome"].Value == "Failed")
+                else if (test.Attributes?["outcome"]?.Value == "Failed")
                 {
                     outcomeCell.Style.Font.Color.SetColor(System.Drawing.Color.Red);
                 }
-                else if (test.Attributes["outcome"].Value == "NotExecuted")
+                else if (test.Attributes?["outcome"]?.Value == "NotExecuted")
                 {
                     outcomeCell.Style.Font.Color.SetColor(System.Drawing.Color.Blue);
                 }
 
-                worksheet.Cells[rowIndex, 4].Value = test.Attributes["duration"].Value;
-                worksheet.Cells[rowIndex, 5].Value = test.Attributes["startTime"].Value;
-                worksheet.Cells[rowIndex, 6].Value = test.Attributes["endTime"].Value;
+                worksheet.Cells[rowIndex, 4].Value = test.Attributes?["duration"]?.Value;
+                worksheet.Cells[rowIndex, 5].Value = test.Attributes?["startTime"]?.Value;
+                worksheet.Cells[rowIndex, 6].Value = test.Attributes?["endTime"]?.Value;
 
-                XmlNode errorInfoNode = test.SelectSingleNode("ns:Output/ns:ErrorInfo", nsmgr);
+                XmlNode? errorInfoNode = test.SelectSingleNode("ns:Output/ns:ErrorInfo", nsmgr);
                 if (errorInfoNode != null)
                 {
                     worksheet.Cells[rowIndex, 7].Value = errorInfoNode.SelectSingleNode("ns:Message", nsmgr)?.InnerText;
