@@ -41,15 +41,7 @@ Replace <inputFileName.trx> with the path to your TRX file and <outputFileName.x
 
 ## Dependencies
 
-This project relies on the [EPPlus](https://github.com/JanKallman/EPPlus) library for working with Excel files. Make sure to install it before building the project.
-
-### Installing EPPlus
-
-To install EPPlus, you can use the NuGet Package Manager Console or the .NET CLI. Run the following command in your project directory:
-
-      dotnet add package EPPlus
-
-This will install the latest version of EPPlus and add it to your project dependencies.
+This project relies on the [EPPlus](https://github.com/JanKallman/EPPlus) library for working with Excel files.
                  
 ## Need some updates/improvements, want to use part of the code? Just fork it!
 
