@@ -27,7 +27,7 @@ Trx2Xlsx Converter is a simple command-line utility that converts Test Results X
 2. **Navigate to the project directory:**
 
    ```bash
-   cd Trx2Xlsx-Converter
+   cd trx2xlsx
    
 3. **Build the project:**
 
