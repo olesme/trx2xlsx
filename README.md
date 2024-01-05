@@ -22,7 +22,7 @@ Trx2Xlsx Converter is a simple command-line utility that converts Test Results X
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/your-username/Trx2Xlsx-Converter.git
+   git clone https://github.com/olesme/trx2xlsx.git
 
 2. **Navigate to the project directory:**
 
