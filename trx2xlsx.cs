@@ -16,7 +16,7 @@ namespace Trx2Xlsx
         {
             if (args.Length < 2)
             {
-                Console.WriteLine("Usage: ConvertTrxToXlsx <inputFileName.trx> <outputFileName.xlsx>");
+                Console.WriteLine("Usage: trx2xlsx <inputFileName.trx> <outputFileName.xlsx>");
                 return;
             }
 
