@@ -16,7 +16,8 @@ Trx2Xlsx Converter is a simple command-line utility that converts Test Results X
 ### Prerequisites
 
 - [.NET SDK](https://dotnet.microsoft.com/download) (8.0 or later)
-  *(The script also checked on the .NET 6 so you can use the trx2xlsx.cs in .NET 6 solution, don`t forget to include EPPlus PackageReference into .cproj file)
+  
+    ``The script also checked on the .NET 6 so you can use the trx2xlsx.cs in .NET 6 solution, don`t forget to include EPPlus PackageReference into .cproj file
 
 ### How to Use
 
