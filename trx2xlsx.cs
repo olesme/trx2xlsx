@@ -60,7 +60,7 @@ namespace Trx2Xlsx
             }   
 
             worksheet.Cells[1, 1].Value = "TestName";
-            worksheet.Cells[1, 2].Value = "TestScenario";
+            worksheet.Cells[1, 2].Value = "StdOut";
             worksheet.Cells[1, 3].Value = "Outcome";
             worksheet.Cells[1, 4].Value = "Duration";
             worksheet.Cells[1, 5].Value = "StartTime";
@@ -107,7 +107,7 @@ namespace Trx2Xlsx
             var allRows = worksheet.Cells[1, 1, rowIndex - 1, 7];
             allRows.AutoFilter = true;
 
-            using (var range = worksheet.Cells[1, 1, rowIndex, 7])
+            using (var range = allRows)
             {
                 range.Style.Border.Top.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
                 range.Style.Border.Bottom.Style = OfficeOpenXml.Style.ExcelBorderStyle.Thin;
